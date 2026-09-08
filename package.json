@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@nats-io/transport-node": "^3.4.0"
+  }
+}
