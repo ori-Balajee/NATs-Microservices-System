@@ -1,10 +1,18 @@
+const notifier = require('node-notifier');
+const path = require('path');
+
 async function sendWelcomeEmail(userData) {
     const { name, email } = userData;
 
-    console.log('\n==================================================');
-    console.log(`[NOTIFICATION SERVICE] Sending Welcome Email to: ${email}`);
-    console.log(`Message: "Hello ${name}, welcome to our platform!"`);
-    console.log('==================================================\n');
+    // Triggers OS Native Desktop Notification
+    notifier.notify({
+        title: '🎉 New User Registered!',
+        message: `${name} (${email}) just joined the platform.`,
+        sound: true,
+        wait: false
+    });
+
+    console.log(`[NOTIFICATION SERVICE] Native desktop alert displayed for ${email}`);
 }
 
 module.exports = { sendWelcomeEmail };
