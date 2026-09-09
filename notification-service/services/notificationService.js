@@ -6,13 +6,13 @@ async function sendWelcomeEmail(userData) {
 
     // Triggers OS Native Desktop Notification
     notifier.notify({
-        title: '🎉 New User Registered!',
+        title: 'New User Registered!',
         message: `${name} (${email}) just joined the platform.`,
         sound: true,
         wait: false
     });
 
-    console.log(`[NOTIFICATION SERVICE] Native desktop alert displayed for ${email}`);
+    console.log(`[NOTIFICATION SERVICE] Desktop alert displayed for ${email}`);
 }
 
 module.exports = { sendWelcomeEmail };
