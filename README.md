@@ -177,3 +177,4 @@ For example, you can send HTTP requests to the API Gateway:
 ```text
 http://localhost:8000
 ```
+![alt text](image.png)
