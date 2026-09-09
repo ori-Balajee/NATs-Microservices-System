@@ -42,6 +42,18 @@ The system utilizes **NATS Request/Reply (RPC)** for synchronous service-to-serv
 ```
 
 ---
+## Key Features
+
+* **Event-Driven Architecture (NATS JetStream):** Asynchronous Pub/Sub event streaming handles background tasks (like user registration alerts) instantly without blocking client HTTP responses.
+* **Synchronous NATS RPC:** Low-latency Request/Reply communication between the API Gateway and microservices for user authentication, registration, and live log querying.
+* **Live Desktop Notifications:** Integrated `node-notifier` in the Notification Service to display real-time native OS desktop popups whenever new user events arrive.
+* **Stream Persistence & At-Least-Once Delivery:** Uses NATS JetStream stream storage and durable consumers to persist messages to disk, guaranteeing event recovery and redelivery even after service or broker crashes.
+* **Pure Microservice Isolation:** Worker services communicate strictly over internal NATS channels without exposing unnecessary, vulnerable HTTP ports.
+* **Idempotent Consumer Logic:** Prevents duplicate notification processing by validating unique `event_id` headers before execution.
+* **JWT Security & Password Hashing:** Secure authentication flow using `bcryptjs` password hashing and signed JSON Web Tokens for protected API routes.
+
+---
+
 ## ⚙️ Prerequisites & Setup
 
 ### Requirements
